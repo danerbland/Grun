@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "grun",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Grun - eat better",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -46,6 +46,7 @@
     "connect-session-sequelize": "^6.0.0",
     "express": "^4.16.4",
     "express-session": "^1.15.1",
+    "google-maps-react": "^2.0.2",
     "history": "^4.9.0",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",

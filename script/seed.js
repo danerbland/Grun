@@ -1,7 +1,13 @@
 'use strict'
+const axios = require('axios')
+if (process.env.NODE_ENV !== 'production') require('../secrets')
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Business} = require('../server/db/models')
+
+const RESTAURANTDATAURL = `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$$app_token=${
+  process.env.DATATOKEN
+}&$limit=350000&$where=zipcode IS NOT NULL AND dba IS NOT NULL AND boro IS NOT NULL AND building IS NOT NULL AND street IS NOT NULL AND latitude IS NOT NULL AND longitude IS NOT NULL`
 
 async function seed() {
   await db.sync({force: true})
@@ -13,6 +19,55 @@ async function seed() {
   ])
 
   console.log(`seeded ${users.length} users`)
+
+  let restaurantApiResponse = await axios.get(RESTAURANTDATAURL)
+
+  const formattedData = []
+
+  restaurantApiResponse.data.forEach(element => {
+    if (
+      element.zipcode === 'N/A' ||
+      !element.dba ||
+      !element.boro ||
+      !element.building ||
+      !element.street ||
+      !element.zipcode ||
+      !element.latitude ||
+      !element.longitude
+    ) {
+      console.log('skipping business')
+      return
+    }
+    if (!element.zipcode) {
+      console.log('no zip code here')
+      console.log(element)
+    }
+    formattedData.push({
+      name: element.dba,
+      boro: element.boro,
+      building: element.building,
+      street: element.street,
+      zipcode: element.zipcode,
+      phone: element.phone,
+      cuisine: element.cuisine_description,
+      latitude: element.latitude,
+      longitude: element.longitude
+    })
+  })
+
+  let phoneNumbers = []
+  let uniqueRestaurants = formattedData.filter(element => {
+    if (phoneNumbers.includes(element.phone)) {
+      return false
+    } else {
+      phoneNumbers.push(element.phone)
+      return true
+    }
+  })
+
+  const businesses = await Business.bulkCreate(uniqueRestaurants)
+  console.log(`seeded ${businesses.length} businesses`)
+
   console.log(`seeded successfully`)
 }
 
