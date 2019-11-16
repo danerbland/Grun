@@ -1,4 +1,8 @@
+const webpack = require('webpack')
+
 const isDev = process.env.NODE_ENV === 'development'
+
+if (process.env.NODE_ENV !== 'production') require('./secrets')
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -25,5 +29,12 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.GOOGLEMAPSAPIKEY': JSON.stringify(
+        process.env.GOOGLEMAPSAPIKEY
+      )
+    })
+  ]
 }

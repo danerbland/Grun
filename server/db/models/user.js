@@ -3,8 +3,13 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
-  bio: {
+  name: {
     type: Sequelize.STRING,
+    allowNull: false,
+    defaultValue: 'Jane Doe'
+  },
+  bio: {
+    type: Sequelize.TEXT,
     allowNull: false,
     defaultValue: ''
   },

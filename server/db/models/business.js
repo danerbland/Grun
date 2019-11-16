@@ -71,6 +71,10 @@ const Business = db.define('business', {
       isUrl: true
     }
   }
+  // rating: {
+  //   type: Sequelize.DECIMAL(3,2),
+  //   defaultValue: 0.00
+  // }
 })
 
 module.exports = Business

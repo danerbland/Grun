@@ -7,8 +7,11 @@ const Badge = require('./badge')
 Review.belongsTo(User)
 Review.belongsTo(Business)
 
-UpVote.hasOne(User)
-UpVote.hasOne(Review)
+Business.hasMany(Review)
+User.hasMany(Review)
+
+UpVote.belongsTo(User)
+UpVote.belongsTo(Review)
 
 Badge.belongsToMany(Business, {as: 'businesses', through: 'businessbadges'})
 Business.belongsToMany(Badge, {as: 'badges', through: 'businessbadges'})

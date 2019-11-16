@@ -3,7 +3,7 @@ const axios = require('axios')
 if (process.env.NODE_ENV !== 'production') require('../secrets')
 
 const db = require('../server/db')
-const {User, Business} = require('../server/db/models')
+const {User, Business, Review, UpVote} = require('../server/db/models')
 
 const RESTAURANTDATAURL = `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$$app_token=${
   process.env.DATATOKEN
@@ -14,11 +14,14 @@ async function seed() {
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({name: 'cody', email: 'cody@email.com', password: '123'}),
+    User.create({name: 'murphy', email: 'murphy@email.com', password: '123'})
   ])
 
   console.log(`seeded ${users.length} users`)
+
+  let moreUsers = await User.bulkCreate(require('./mock_users'))
+  console.log(`seeded ${moreUsers.length} more users.`)
 
   let restaurantApiResponse = await axios.get(RESTAURANTDATAURL)
 
@@ -55,6 +58,8 @@ async function seed() {
     })
   })
 
+  console.log(`seeded ${users.length} users`)
+
   let phoneNumbers = []
   let uniqueRestaurants = formattedData.filter(element => {
     if (phoneNumbers.includes(element.phone)) {
@@ -67,6 +72,12 @@ async function seed() {
 
   const businesses = await Business.bulkCreate(uniqueRestaurants)
   console.log(`seeded ${businesses.length} businesses`)
+
+  let reviews = await Review.bulkCreate(require('./mock_reviews'))
+  console.log(`seeded ${reviews.length} reviews`)
+
+  let upvotes = await UpVote.bulkCreate(require('./mock_upvotes'))
+  console.log(`seeded ${upvotes.length} upvotes`)
 
   console.log(`seeded successfully`)
 }
