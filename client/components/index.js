@@ -6,4 +6,8 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
-export {SingleBusinessContainer} from './businesses/single-business-container'
+export {
+  SingleBusinessContainer
+} from './single-business/single-business-container'
+export {BusinessesContainer} from './businesses/businesses-container'
+export {SearchBar} from './search-bar/search-bar'

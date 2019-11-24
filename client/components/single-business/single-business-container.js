@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {SingleBusinessDetailView} from './single-business-detail-view'
 import {getSingleBusinessByIdThunkCreator} from '../../store/single-business'
-import SingleBusinessMapContainer from './single-business-map-container'
+import MapContainer from '../map-container'
 
 class DisconnectedSingleBusinessContainer extends React.Component {
   componentDidMount() {
@@ -21,10 +21,7 @@ class DisconnectedSingleBusinessContainer extends React.Component {
           <SingleBusinessDetailView business={this.props.business} />
         </div>
         <div className="single-business-map-panel">
-          <SingleBusinessMapContainer
-            businesses={businesses}
-            initialCenter={initialCenter}
-          />
+          <MapContainer businesses={businesses} initialCenter={initialCenter} />
         </div>
       </div>
     )

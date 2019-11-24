@@ -9,6 +9,7 @@ module.exports = router
 router.get('/brooklyn', async (req, res, next) => {
   try {
     const businesses = await Business.findAll({
+      limit: 20,
       where: {
         boro: 'Brooklyn'
       }
@@ -22,6 +23,7 @@ router.get('/brooklyn', async (req, res, next) => {
 router.get('/queens', async (req, res, next) => {
   try {
     const businesses = await Business.findAll({
+      limit: 20,
       where: {
         boro: 'Queens'
       }
@@ -35,6 +37,7 @@ router.get('/queens', async (req, res, next) => {
 router.get('/manhattan', async (req, res, next) => {
   try {
     const businesses = await Business.findAll({
+      limit: 20,
       where: {
         boro: 'Manhattan'
       }
@@ -48,6 +51,7 @@ router.get('/manhattan', async (req, res, next) => {
 router.get('/bronx', async (req, res, next) => {
   try {
     const businesses = await Business.findAll({
+      limit: 20,
       where: {
         boro: 'Bronx'
       }
@@ -61,6 +65,7 @@ router.get('/bronx', async (req, res, next) => {
 router.get('/statenisland', async (req, res, next) => {
   try {
     const businesses = await Business.findAll({
+      limit: 20,
       where: {
         boro: 'Staten Island'
       }
