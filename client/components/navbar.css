@@ -1,0 +1,23 @@
+.nav-header {
+  color: var(--pistachio);
+  margin-bottom: 5px;
+}
+
+.nav-menu {
+  width: 95%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.nav-sub-header {
+  color: var(--granny-smith);
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.nav-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
