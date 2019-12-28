@@ -8,7 +8,12 @@ export const SingleBusinessDetailView = props => {
 
   return (
     <div>
-      <h2>{business.name}</h2>
+      <h2>
+        {business.name} {business.compositeRating}
+      </h2>
+      <button className="review-button" onClick={props.reviewButtonHandler}>
+        Leave Reveiw
+      </button>
       <h4>{business.cuisine}</h4>
       <div className="divider" />
       <h3>Reviews</h3>

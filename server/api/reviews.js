@@ -30,16 +30,21 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
-  console.log('in post request. req.body: ', req.body)
   try {
-    const {rating, description, userId, businessId} = req.body
-    const review = await Review.create({
-      rating,
-      description,
-      userId,
-      businessId
-    })
-    res.json(review)
+    //If user is logged in, post their review.  Otherwise, redirect them to the login page.
+    if (req.user) {
+      const userId = req.user.id
+      const {rating, description, businessId} = req.body
+      const review = await Review.create({
+        rating,
+        description,
+        userId,
+        businessId
+      })
+      res.json(review)
+    } else {
+      throw 'user is not logged in!'
+    }
   } catch (error) {
     next(error)
   }

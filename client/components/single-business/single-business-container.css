@@ -1,0 +1,9 @@
+.single-business-page {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-business-page-with-scrim {
+  display: flex;
+  flex-flow: row nowrap;
+}

@@ -1,0 +1,10 @@
+.close-button {
+  color: #6f8c5f;
+}
+
+.review-form-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}

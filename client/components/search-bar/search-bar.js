@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import './search-bar.css'
 import {SearchBarBusinessList} from './search-bar-business-list'
 import {
   getBusinessesByNameThunkCreator,
@@ -31,15 +32,18 @@ class DisconnectedSearchBar extends React.Component {
       <div className="search-bar">
         <label>Find A Restaurant</label>
         <div className="divider" />
-        <form autoComplete="off" className="search-bar-form">
-          <input
-            type="text"
-            name="name"
-            className="search-bar-input"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-        </form>
+        <div className="search-bar-container">
+          <form autoComplete="off" className="search-bar-form">
+            <input
+              type="text"
+              name="name"
+              className="search-bar-input"
+              placeholder="Exclusive Pizza"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </form>
+        </div>
         <SearchBarBusinessList businesses={this.props.businesses} />
       </div>
     )

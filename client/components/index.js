@@ -11,3 +11,4 @@ export {
 } from './single-business/single-business-container'
 export {BusinessesContainer} from './businesses/businesses-container'
 export {SearchBar} from './search-bar/search-bar'
+export {ReviewForm} from './reviews/review-form'
