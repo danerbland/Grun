@@ -44,31 +44,34 @@ export class ReviewForm extends React.Component {
     const businessScore = this.state.business.compositeRating
 
     return (
-      <div className="review-form-container">
-        <form onSubmit={this.onSubmit} className="review-form">
-          <h3 className="business-header">
-            {businessName} {businessScore}
-          </h3>
-          <div className="rating-row">
-            <h4>Rating: </h4>
-          </div>
-          <div className="review-row">
-            <h4>Review: </h4>
-            <input
-              type="text"
-              name="description"
-              autoComplete="off"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit" disabled={!isSubmittable}>
-            Submit
+      <div className="review-container">
+        <div className="review-scrim" />
+        <div className="review-form-container">
+          <form onSubmit={this.onSubmit} className="review-form">
+            <h3 className="business-header">
+              {businessName} {businessScore}
+            </h3>
+            <div className="rating-row">
+              <h4>Rating: </h4>
+            </div>
+            <div className="review-row">
+              <h4>Review: </h4>
+              <input
+                type="text"
+                name="description"
+                autoComplete="off"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit" disabled={!isSubmittable}>
+              Submit
+            </button>
+          </form>
+          <button onClick={this.props.handleClose} className="close-button">
+            close
           </button>
-        </form>
-        <button onClick={this.props.handleClose} className="close-button">
-          close
-        </button>
+        </div>
       </div>
     )
   }
