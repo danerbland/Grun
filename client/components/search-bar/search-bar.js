@@ -38,7 +38,7 @@ class DisconnectedSearchBar extends React.Component {
               type="text"
               name="name"
               className="search-bar-input"
-              placeholder="Exclusive Pizza"
+              placeholder="Restaurant Name"
               value={this.state.name}
               onChange={this.handleChange}
             />
