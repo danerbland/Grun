@@ -129,7 +129,8 @@ router.get('/:id', async (req, res, next) => {
           model: Review,
           include: User
         }
-      ]
+      ],
+      order: [[Review, 'createdAt', 'DESC']]
     })
     res.json(business)
   } catch (error) {
