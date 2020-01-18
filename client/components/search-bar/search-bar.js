@@ -27,6 +27,11 @@ class DisconnectedSearchBar extends React.Component {
     }
   }
 
+  mouseDownHandler() {
+    const whiteScrim = document.getElementById('white-scrim')
+    whiteScrim.classList.add('white-scrim')
+  }
+
   render() {
     return (
       <div className="search-bar">
@@ -39,6 +44,7 @@ class DisconnectedSearchBar extends React.Component {
               className="search-bar-input"
               placeholder="Restaurant Name"
               value={this.state.name}
+              onMouseDown={() => this.mouseDownHandler()}
               onChange={this.handleChange}
             />
           </form>

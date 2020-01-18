@@ -1,3 +1,7 @@
+label {
+  color: var(--light-moss-green);
+}
+
 .search-bar {
   display: flex;
   flex-flow: column nowrap;

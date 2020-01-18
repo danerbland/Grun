@@ -28,6 +28,19 @@ form div {
   display: inline-block;
 }
 
+.white-scrim {
+  position: absolute;
+  min-height: 100%;
+  overflow: auto;
+  width: 100%;
+  background-color: white;
+  opacity: 0.2;
+  visibility: visible;
+  z-index: -1;
+  margin: 0px;
+  transition: 1s;
+}
+
 .scrim {
   position: absolute;
   min-height: 130%;
@@ -48,7 +61,7 @@ form div {
   width: 100%;
   position: absolute;
   opacity: 0.9;
-  z-index: -1;
+  z-index: -2;
 }
 
 .single-business-page {
