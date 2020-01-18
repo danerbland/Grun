@@ -31,7 +31,6 @@ class DisconnectedSearchBar extends React.Component {
     return (
       <div className="search-bar">
         <label>Find A Restaurant</label>
-        <div className="divider" />
         <div className="search-bar-container">
           <form autoComplete="off" className="search-bar-form">
             <input

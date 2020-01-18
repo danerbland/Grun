@@ -3,6 +3,10 @@ div.business-list-item:hover {
   transition: 0.5s ease;
 }
 
+.business-list-item {
+  padding-left: 10px;
+}
+
 .business-list-name {
   color: var(--russian-green);
   left: 50%;

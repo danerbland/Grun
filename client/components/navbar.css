@@ -6,8 +6,13 @@
 .nav-menu {
   width: 95%;
   display: flex;
+  color: var(--pistachio);
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+
+.nav-menu > a {
+  color: var(--pistachio);
 }
 
 .nav-sub-header {
@@ -21,4 +26,14 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+}
+
+.login-nav {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.login-nav a {
+  color: var(--pistachio);
 }

@@ -6,6 +6,7 @@ import Routes from './routes'
 const App = () => {
   return (
     <div>
+      <div id="background-image" className="background-image" />
       <div id="scrim" className="scrim" />
       <Navbar />
       <Routes />

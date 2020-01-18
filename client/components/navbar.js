@@ -20,7 +20,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       <Link to="/statenIsland">Staten Island</Link>
     </div>
 
-    <nav>
+    <nav className="login-nav">
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
