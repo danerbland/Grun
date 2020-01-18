@@ -13,7 +13,8 @@
 .nav-sub-header {
   color: var(--granny-smith);
   margin: 0px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .nav-container {

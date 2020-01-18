@@ -6,6 +6,7 @@ import Routes from './routes'
 const App = () => {
   return (
     <div>
+      <div id="scrim" className="scrim" />
       <Navbar />
       <Routes />
     </div>

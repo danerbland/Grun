@@ -6,12 +6,10 @@ import MapContainer from '../map-container'
 
 class DisconnectedBusinessesContainer extends React.Component {
   componentDidMount() {
-    console.log('in componentDidMount for DisconnectedBusinessContainer')
     this.props.getBusinesses(this.props.boro)
   }
 
   render() {
-    console.log('rendering businesses container')
     let businesses = this.props.businesses
     const initialCenter = {
       lat: this.props.lat,

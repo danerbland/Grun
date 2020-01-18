@@ -1,6 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 
+import {StarRater} from './star-rater'
 import './review-form.css'
 
 const initialState = {
@@ -11,18 +12,24 @@ const initialState = {
 export class ReviewForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log('in constructor. props: ', props)
     this.state = {
       ...initialState,
       business: props.business
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.setRating = this.setRating.bind(this)
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
+    })
+  }
+
+  setRating(rating) {
+    this.setState({
+      rating: rating
     })
   }
 
@@ -37,15 +44,11 @@ export class ReviewForm extends React.Component {
   render() {
     const isSubmittable =
       this.state.rating !== 0 && this.state.description.length !== 0
-
-    console.log('this.props: ', this.props)
-
     const businessName = this.state.business.name
     const businessScore = this.state.business.compositeRating
 
     return (
       <div className="review-container">
-        <div className="review-scrim" />
         <div className="review-form-container">
           <form onSubmit={this.onSubmit} className="review-form">
             <h3 className="business-header">
@@ -53,20 +56,25 @@ export class ReviewForm extends React.Component {
             </h3>
             <div className="rating-row">
               <h4>Rating: </h4>
+              <StarRater
+                setRating={this.setRating}
+                rating={this.state.rating}
+              />
             </div>
-            <div className="review-row">
+            <div className="review-column">
               <h4>Review: </h4>
-              <input
+              <textarea
                 type="text"
                 name="description"
                 autoComplete="off"
+                className="description-input"
                 value={this.state.description}
                 onChange={this.handleChange}
               />
+              <button type="submit" disabled={!isSubmittable}>
+                Submit
+              </button>
             </div>
-            <button type="submit" disabled={!isSubmittable}>
-              Submit
-            </button>
           </form>
           <button onClick={this.props.handleClose} className="close-button">
             close

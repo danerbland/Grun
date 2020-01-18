@@ -5,8 +5,6 @@ class MapContainer extends React.Component {
   render() {
     const businesses = this.props.businesses
     const {initialCenter} = this.props
-    console.log('rendering. initialCenter: ', initialCenter)
-    console.log('rendering. lat & lng: ', initialCenter.lat, initialCenter.lng)
     if (
       initialCenter &&
       !isNaN(initialCenter.lat) &&
@@ -14,7 +12,7 @@ class MapContainer extends React.Component {
     ) {
       return (
         <Map
-          style={{width: '75%', height: '75%'}}
+          containerStyle={{width: '75%', height: '75%'}}
           google={this.props.google}
           initialCenter={initialCenter}
           zoom={12}

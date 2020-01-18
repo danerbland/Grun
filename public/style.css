@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Gill Sans', sans-serif;
+  margin: 0px;
 }
 
 a {
@@ -27,9 +28,23 @@ form div {
   display: inline-block;
 }
 
+.scrim {
+  position: absolute;
+  min-height: 130%;
+  overflow: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  z-index: 1;
+  margin: 0px;
+}
+
 .single-business-page {
   display: flex;
   flex-flow: row nowrap;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* height: 100% */
 }
 
 .businesses-page {
@@ -37,8 +52,18 @@ form div {
   flex-flow: row nowrap;
 }
 
+.businesses-left-panel {
+  width: 25%;
+  height: 100%;
+}
+
 .single-business-left-panel {
   width: 25%;
+  height: 75%;
+}
+
+.single-business-map-panel {
+  width: 75%;
   height: 100%;
 }
 
@@ -47,7 +72,7 @@ form div {
 }
 
 .reviews-list {
-  height: 400px;
+  height: 260px;
   overflow: scroll;
 }
 
@@ -58,6 +83,7 @@ form div {
 
 .divider {
   height: 2px;
+  width: 90%;
   background-color: var(--russian-green);
 }
 
