@@ -7,7 +7,7 @@ export const BusinessesDetailView = props => {
 
   return (
     <div>
-      <h3>Top Businesses</h3>
+      <h3 className="businesses-header">Top Businesses</h3>
       <div className="businesses-list">
         {businesses.map((business, index) => {
           return (

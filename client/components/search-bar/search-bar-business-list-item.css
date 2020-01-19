@@ -1,6 +1,8 @@
 div.business-list-item:hover {
   background-color: lightsteelblue;
   transition: 0.5s ease;
+  opacity: 0.8;
+  border-radius: 5px;
 }
 
 .business-list-item {

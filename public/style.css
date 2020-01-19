@@ -8,6 +8,10 @@
 body {
   font-family: 'Gill Sans', sans-serif;
   margin: 0px;
+  background-image: url('./assets/images/dirt.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
@@ -28,41 +32,43 @@ form div {
   display: inline-block;
 }
 
-.white-scrim {
+.image-scrim {
   position: absolute;
   min-height: 100%;
   overflow: auto;
   width: 100%;
-  background-color: white;
-  opacity: 0.2;
+  background-color: black;
+  opacity: 0.4;
   visibility: visible;
   z-index: -1;
   margin: 0px;
   transition: 1s;
+  background-attachment: fixed;
 }
 
 .scrim {
   position: absolute;
-  min-height: 130%;
+  min-height: 100%;
   overflow: auto;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  visibility: hidden;
+  background-attachment: fixed;
   display: none;
   z-index: 1;
   margin: 0px;
 }
 
-.background-image {
+/* .background-image {
   background-image: url('./assets/images/dirt.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   height: 100%;
   width: 100%;
   position: absolute;
   opacity: 0.9;
   z-index: -2;
-}
+} */
 
 .single-business-page {
   display: flex;
@@ -85,6 +91,7 @@ form div {
 .single-business-left-panel {
   width: 25%;
   height: 75%;
+  color: whitesmoke;
 }
 
 .single-business-map-panel {
@@ -114,9 +121,14 @@ form div {
 
 .inline-header {
   display: inline;
+  color: var(--pistachio);
 }
 
 .router-container {
   height: 100%;
   width: 100%;
+}
+
+.businesses-header {
+  color: whitesmoke;
 }

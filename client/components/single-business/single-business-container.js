@@ -21,9 +21,9 @@ class DisconnectedSingleBusinessContainer extends React.Component {
   togglePopup = function() {
     const scrim = document.getElementById('scrim')
     if (!this.state.popup) {
-      scrim.style.visibility = 'visible'
+      scrim.style.display = 'inline'
     } else {
-      scrim.style.visibility = 'hidden'
+      scrim.style.display = 'none'
     }
 
     this.setState(prevState => ({

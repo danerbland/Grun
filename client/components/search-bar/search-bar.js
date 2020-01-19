@@ -28,8 +28,8 @@ class DisconnectedSearchBar extends React.Component {
   }
 
   mouseDownHandler() {
-    const whiteScrim = document.getElementById('white-scrim')
-    whiteScrim.classList.add('white-scrim')
+    const blackScrim = document.getElementById('image-scrim')
+    blackScrim.classList.add('image-scrim')
   }
 
   render() {
