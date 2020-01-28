@@ -35,7 +35,11 @@ export class ReviewForm extends React.Component {
 
   async handleSubmit(event) {
     try {
-      const {data} = await Axios.post('/api/reviews', data)
+      const {data} = await Axios.post('/api/reviews', {
+        rating: this.state.rating,
+        description: this.state.description,
+        businessId: this.state.business.id
+      })
     } catch (error) {
       console.error(error)
     }
@@ -71,7 +75,11 @@ export class ReviewForm extends React.Component {
                 value={this.state.description}
                 onChange={this.handleChange}
               />
-              <button type="submit" disabled={!isSubmittable}>
+              <button
+                type="submit"
+                disabled={!isSubmittable}
+                onClick={this.handleSubmit}
+              >
                 Submit
               </button>
             </div>
